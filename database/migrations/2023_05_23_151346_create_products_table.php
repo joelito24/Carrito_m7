@@ -1,5 +1,4 @@
 <?php
-
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -22,8 +21,11 @@ class CreateProductsTable extends Migration
             $table->integer('stock');
             $table->unsignedBigInteger('proveedor_id');
 
-            $table->foreign('proveedor_id')->references('proveedor_id')->on('proveedores');
-            
+            $table->foreign('proveedor_id')
+                ->references('proveedor_id')
+                ->on('proveedores')
+                ->onDelete('cascade');
+
             $table->timestamps();
         });
     }

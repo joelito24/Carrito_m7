@@ -30,6 +30,7 @@ Route::delete('/products/{id}', [App\Http\Controllers\ProductsController::class,
 Route::get('/proveedores', [App\Http\Controllers\ProveedoresController::class, 'index'])->name('proveedores');
 Route::get('/proveedores/create', [App\Http\Controllers\ProveedoresController::class, 'create'])->name('proveedores.create');
 Route::put('/proveedores/store', [App\Http\Controllers\ProveedoresController::class, 'store'])->name('proveedores.store');
+Route::delete('/proveedores/{id}', [App\Http\Controllers\ProveedoresController::class, 'destroy'])->name('proveedores.destroy');
 
 //CARRITO
 Route::get('/cart', [App\Http\Controllers\CartController::class, 'index'])->name('cart.index');

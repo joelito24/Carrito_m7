@@ -50,4 +50,12 @@ class ProveedoresController extends Controller
 
         return redirect()->route('products');
     }
+
+    public function destroy($id){
+
+        $proveedores = Proveedor::find($id);
+        $proveedores->delete();
+
+        return redirect()->route('proveedores.index');
+    }
 }

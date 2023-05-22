@@ -17,6 +17,7 @@
                     <tr>
                         <th>ID</th>
                         <th>Nombre</th>
+                        <th style="text-align: center">Acciones</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -24,6 +25,14 @@
                         <tr style="vertical-align: middle">
                             <td>{{ $proveedor->proveedor_id }}</td>
                             <td>{{ $proveedor->nombre }}</td>
+                            <td>
+                                <form action="{{ route('proveedores.destroy', $proveedor->proveedor_id) }}" method="POST">
+                                    @csrf
+                                    @method('delete')
+                                    <button class="btn btn-danger" type="submit">Eliminar
+                                    </button>
+                                </form>
+                            </td>
                         </tr>
                     @endforeach
                 </tbody>
