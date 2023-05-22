@@ -2,15 +2,10 @@
 
 @section('content')
 <div class="container">
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand" href="{{ route('posts') }}">Posts</a>
-        <a class="navbar-brand" href="{{ route('products')}}">Productos</a>
-    </nav>
-</div>
-<div class="container">
     <div class="row justify-content-center">
         <div class="col-md-12">
             <a href="{{ route('products.create') }}" class="btn btn-primary">Crear producto</a>
+            <a href="{{ route('proveedores.create') }}" class="btn btn-primary">Crear proveedor</a>
             <table class="table table-striped">
                 <thead>
                     <tr>
@@ -46,14 +41,29 @@
                     @endforeach
                 </tbody>
             </table>
-            <div class="row justify-content-center">
+            <div class="rowjustify-content-end">
                 <div class="col-md-12">
-                    <p class="text-center">Total: {{ Cart::Total() }}</p>
+                    <p class="text-center" style="font-size: 20px; font-weight: bold; text-align-last: right;">Total: {{ Cart::Total() }}</p>
+                </div>
+            </div>
+            <div class="row" style="text-align: right;">
+                <div class="col-md-12">
+                    <button class="btn btn-success" id="btnComprar" onclick="submitComprado()">Comprar</button>
                 </div>
             </div>
         </div>  
     </div>
 </div>
 @endsection
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script>
+    function submitComprado(){
+        window.location.href = "{{ route('confirmacion-compra') }}";
+    }
+</script>
+
+    
+
 
                   

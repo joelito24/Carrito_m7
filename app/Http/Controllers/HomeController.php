@@ -25,9 +25,12 @@ class HomeController extends Controller
     public function index()
     {
         $posts = Post::all();
+        $proveedoresCount = Proveedor::all()->count();
+
 
         return view('home', [
-            'posts' => $posts
+            'posts' => $posts,
+            'proveedoresCount' => $proveedoresCount
         ]);
     }
 

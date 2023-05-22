@@ -24,8 +24,10 @@ class ProductsController extends Controller
     public function index()
     {
         $products = Product::all();
+        $proveedoresCount = Proveedor::all()->count();
         return view('products', [
-            'products' => $products
+            'products' => $products, 
+            'proveedoresCount' => $proveedoresCount
         ]);
     }
 
@@ -35,8 +37,11 @@ class ProductsController extends Controller
     public function create()
     {
         $proveedores = Proveedor::all();
+        $proveedoresCount = Proveedor::all()->count();
+
         return view('products.create', [
-            'proveedores' => $proveedores
+            'proveedores' => $proveedores,
+            'proveedoresCount' => $proveedoresCount
         ]);
     }
 
@@ -55,14 +60,6 @@ class ProductsController extends Controller
         $products->save();
 
         return redirect()->route('products');
-    }
-
-    /**
-     * Display the specified resource.
-     */
-    public function show(string $id)
-    {
-        //
     }
 
     /**

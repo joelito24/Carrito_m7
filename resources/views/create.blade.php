@@ -2,12 +2,6 @@
 
 @section('content')
 <div class="container">
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand" href="{{ route('posts') }}">Posts</a>
-        <a class="navbar-brand" href="{{ route('products')}}">Productos</a>
-    </nav>
-</div>
-<div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">            
             <form class="createform" method="POST" id="createform" action="{{ route('post.save') }}">
