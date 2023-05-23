@@ -41,23 +41,28 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav me-auto">
-                        <li style="background-color: #lightgrey;">
-                            <a class="nav-link" href="{{ route('products') }}">Productos</a>
-                        </li>
-                        <li>
-                            <a class="nav-link" href="{{ route('proveedores') }}">Proveedores</a>
-                        </li>
-                        <li>
-                            <a class="nav-link" href="{{ route('posts') }}">Posts</a>
-                        </li>
+                        @Auth
+                            <li style="background-color: #lightgrey;">
+                                <a class="nav-link" href="{{ route('products') }}">Productos</a>
+                            </li>
+                            <li>
+                                <a class="nav-link" href="{{ route('proveedores') }}">Proveedores</a>
+                            </li>
+                            <li>
+                                <a class="nav-link" href="{{ route('posts') }}">Posts</a>
+                            </li>
+                        @endauth
                     </ul>
 
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ms-auto">
+                        <!-- Cart -->
+                        @Auth
                         <a class="nav-link" href="{{ route('cart.index') }}">
                             <i class="fas fa-shopping-cart"></i>
                             Carrito
                         </a>
+                        @endauth
                         <!-- Authentication Links -->
                         @guest
                             @if (Route::has('login'))
