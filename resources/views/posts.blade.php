@@ -11,6 +11,14 @@
                         <h2>{{ $post->title }}</h2>
                         <p>{{ $post->cont }}</p>
                     </div>
+                    <div class="card-footer">
+                        <a type="button" class="btn btn-primary" href="{{ route('post.edit', $post->id) }}">Edit</a>
+                        <form action="{{ route('post.delete', $post->id) }}" method="POST">
+                            @csrf
+                            @method('DELETE')
+                            <button type="submit" class="btn btn-danger">Delete</button>                            
+                        </form>
+                    </div>
                 </div>
             @endforeach
         </div>

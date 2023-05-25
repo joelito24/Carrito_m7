@@ -49,4 +49,31 @@ class PostsController extends Controller
 
         return redirect()->route('posts');
     }
+
+    function edit($id)
+    {
+        $post = Post::findOrFail($id);
+
+        return view('post.edit', [
+            'post' => $post
+        ]);
+    }
+
+    function update(Request $request, $id)
+    {
+        $post = Post::findOrFail($id);
+        $post->title = $request->title;
+        $post->cont = $request->cont;
+        $post->save();
+
+        return redirect()->route('posts');
+    }
+
+    function delete($id)
+    {
+        $post = Post::findOrFail($id);
+        $post->delete();
+
+        return redirect()->route('posts');
+    }
 }
